@@ -58,11 +58,9 @@ p {
 
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
+  margin-top: 10vh;
+  padding: 0 10px;
   max-width: 960px;
-  flex-direction: column;
-  align-items: center;
 }
 
 svg.material-icons {
@@ -80,8 +78,7 @@ svg.material-icons:not(:last-child) {
 
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   margin-top: 16px;
 }
 
