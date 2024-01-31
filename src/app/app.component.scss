@@ -56,13 +56,6 @@ p {
   opacity: 0.8;
 }
 
-.content {
-  display: flex;
-  margin-top: 10vh;
-  padding: 0 10px;
-  max-width: 960px;
-}
-
 svg.material-icons {
   height: 24px;
   width: auto;
@@ -288,4 +281,35 @@ svg#clouds {
     display: none;
     visibility: hidden;
   }
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  padding: 0 10px;
+  max-width: 960px;
+}
+
+.split-container {
+  display: flex;
+  width: 100%;
+}
+
+.left-panel {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.right-panel {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

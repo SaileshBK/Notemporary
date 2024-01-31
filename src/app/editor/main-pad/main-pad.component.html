@@ -1,0 +1,8 @@
+<div class="note-section">
+  <div *ngIf="!isEditing" (click)="startEditing()">
+    <p>{{ noteContent || 'Click here to start writing...' }}</p>
+  </div>
+  <div *ngIf="isEditing">
+    <textarea [(ngModel)]="noteContent" (blur)="stopEditing()"></textarea>
+  </div>
+</div>
