@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Notemporary';
+
+  openNewTab(): void {
+
+    const currentUrl = window.location.href;
+    window.open(currentUrl, '_blank');
+  }
 }
