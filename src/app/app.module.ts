@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MainPadComponent } from './editor/main-pad/main-pad.component';
 import { FormsModule } from '@angular/forms';
-import { DraggableDirective } from './editor/draggable.directive';
+import { DraggableDirective } from './shared/directives/draggable.directive';
 
 @NgModule({
   declarations: [

@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MainPadService } from 'src/app/shared/services/main-pad.service';
 
 @Component({
   selector: 'app-main-pad',
   templateUrl: './main-pad.component.html',
   styleUrls: ['./main-pad.component.scss']
 })
-export class MainPadComponent {
+export class MainPadComponent implements OnInit {
+  showCard: boolean = false;
+
+  constructor(private cardService: MainPadService) { }
+  ngOnInit() {
+    this.cardService.currentCardState.subscribe(show => this.showCard = show);
+  }
   closeCard() {
-    throw new Error('Method not implemented.');
+    this.cardService.toggleCard(false);
   }
 
   isEditing = false;
