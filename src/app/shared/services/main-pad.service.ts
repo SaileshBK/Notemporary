@@ -13,5 +13,4 @@ export class MainPadService {
   toggleCard(show: boolean) {
     this.showCardSource.next(show);
   }
-
 }
