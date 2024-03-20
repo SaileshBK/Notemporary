@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   providedIn: 'root'
 })
 export class MainPadService {
-
   private showCardSource = new BehaviorSubject<boolean>(false);
   currentCardState = this.showCardSource.asObservable();
 
-  constructor() { }
+  constructor() {
+
+  }
 
   toggleCard(show: boolean) {
     this.showCardSource.next(show);
   }
-
 }
