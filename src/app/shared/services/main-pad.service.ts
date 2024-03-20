@@ -9,7 +9,6 @@ export class MainPadService {
   currentCardState = this.showCardSource.asObservable();
 
   constructor() {
-
   }
 
   toggleCard(show: boolean) {
