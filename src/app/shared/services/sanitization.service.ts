@@ -6,10 +6,7 @@ import * as DOMPurify from 'dompurify';
 })
 export class SanitizationService {
 
-  constructor(
-  ) { }
-
-  private sanitize(data: string): string {
+  sanitize(data: string): string {
     // Set up a flag to detect sanitization
     // Initialize a flag to detect any sanitization
     let wasSanitized = false;
