@@ -4,7 +4,6 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   selector: '[appDraggable]'
 })
 export class DraggableDirective {
-
   private isDragging = false;
   private startX = 0;
   private startY = 0;
@@ -12,7 +11,11 @@ export class DraggableDirective {
   private initialTop = 0;
   private offsetX: number = 0;
   private offsetY: number = 0;
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) { }
 
   @HostListener('mousedown', ['$event']) onMouseDown(event: MouseEvent) {
     this.isDragging = true;
