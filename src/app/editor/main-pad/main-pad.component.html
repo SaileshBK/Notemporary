@@ -2,7 +2,7 @@
   <div class="card" appDraggable *ngIf="pad.visible">
     <div class="card-header">
       {{ pad.id }}
-      <button type="button" class="close" aria-label="Close" (click)="closeCard()">
+      <button type="button" class="close" aria-label="Close" (click)="closeCard(pad.id)">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>

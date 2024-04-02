@@ -41,8 +41,8 @@ export class MainPadComponent implements OnInit {
     this.pads.push(newPad);
   }
 
-  closeCard() {
-    this.cardService.toggleCard(false);
+  closeCard(cardId: string) {
+    this.pads = this.pads.filter(card => card.id !== cardId);
   }
 
   startEditing() {
