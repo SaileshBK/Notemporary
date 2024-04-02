@@ -8,9 +8,6 @@ export class MainPadService {
   private showCardSource = new BehaviorSubject<boolean>(false);
   currentCardState = this.showCardSource.asObservable();
 
-  constructor() {
-  }
-
   toggleCard(show: boolean) {
     this.showCardSource.next(show);
   }
