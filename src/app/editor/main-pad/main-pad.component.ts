@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pad } from 'src/app/shared/model/pad';
+import { Pad } from 'src/app/shared/models/pad';
 import { MainPadService } from 'src/app/shared/services/main-pad.service';
 import { SanitizationService } from 'src/app/shared/services/sanitization.service';
 
