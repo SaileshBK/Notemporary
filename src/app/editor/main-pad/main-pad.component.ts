@@ -15,9 +15,7 @@ export class MainPadComponent implements OnInit {
   noteContent = '';
   top = 0;
   left = 0;
-
   pads: Pad[] = [];
-  nextId = 0; // To keep track of the next pad id
 
   constructor(
     private cardService: MainPadService,
@@ -36,8 +34,8 @@ export class MainPadComponent implements OnInit {
     const newPad: Pad = {
       id: uuidv4(),
       content: '',
-      top: 0, // Default position, adjust as needed
-      left: 0, // Default position, adjust as needed
+      top: 0,
+      left: 0,
       visible: true
     };
     this.pads.push(newPad);
