@@ -12,7 +12,6 @@ export class AppComponent {
 
 
   openNewTab(): void {
-
     const currentUrl = window.location.href;
     window.open(currentUrl, '_blank');
   }
