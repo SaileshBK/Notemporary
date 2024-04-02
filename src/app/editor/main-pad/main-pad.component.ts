@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pad } from 'src/app/shared/models/pad';
 import { MainPadService } from 'src/app/shared/services/main-pad.service';
 import { SanitizationService } from 'src/app/shared/services/sanitization.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-main-pad',
@@ -33,7 +34,7 @@ export class MainPadComponent implements OnInit {
 
   openNewPad() {
     const newPad: Pad = {
-      id: this.nextId++,
+      id: uuidv4(),
       content: '',
       top: 0, // Default position, adjust as needed
       left: 0, // Default position, adjust as needed

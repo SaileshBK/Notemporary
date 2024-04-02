@@ -1,5 +1,5 @@
 export interface Pad {
-  id: number;
+  id: string;
   content: string;
   top: number;
   left: number;
