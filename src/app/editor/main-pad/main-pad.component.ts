@@ -49,9 +49,10 @@ export class MainPadComponent implements OnInit {
     this.isEditing = true;
   }
 
-  stopEditing() {
+  stopEditing(currentPad: Pad) {
     this.isEditing = false;
-    this.sanitizationService.sanitize(this.noteContent);
+    currentPad.content = this.sanitizationService.sanitize(currentPad.content);
+    this.pads = this.pads.map(pad => pad.id === currentPad.id ? currentPad : pad);
   }
 
   moveCard(event: MouseEvent) {
