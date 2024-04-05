@@ -7,10 +7,7 @@
       </button>
     </div>
     <div class="card-body">
-      <div *ngIf="!isEditing" (click)="startEditing()">
-        <p>{{ pad.content || 'Click here to start writing...' }}</p>
-      </div>
-      <div *ngIf="isEditing">
+      <div>
         <textarea [(ngModel)]="pad.content" (blur)="stopEditing(pad)"></textarea>
       </div>
     </div>

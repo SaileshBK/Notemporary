@@ -1,6 +1,6 @@
 textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .card {
@@ -19,6 +19,8 @@ textarea {
 
 .card-body {
   padding: 10px;
+  word-wrap: break-word;
+  width: 280px;
 }
 
 .close {
