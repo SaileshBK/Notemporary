@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Pad } from 'src/app/shared/models/pad';
 import { MainPadService } from 'src/app/shared/services/main-pad.service';
 import { SanitizationService } from 'src/app/shared/services/sanitization.service';
@@ -17,6 +17,8 @@ export class MainPadComponent implements OnInit {
   left = 0;
   pads: Pad[] = [];
   currentPadId: string = '';
+
+  @Output() minimizedData = new EventEmitter<Pad>();
 
   constructor(
     private cardService: MainPadService,
@@ -40,6 +42,11 @@ export class MainPadComponent implements OnInit {
       visible: true
     };
     this.pads.push(newPad);
+  }
+
+  minimizeCard(pad: Pad) {
+    this.minimizedData.emit(pad);
+    this.pads = this.pads.filter(card => card.id !== pad.id);
   }
 
   closeCard(cardId: string) {

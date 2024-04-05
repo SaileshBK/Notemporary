@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MainPadService } from './shared/services/main-pad.service';
+import { Pad } from './shared/models/pad';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { MainPadService } from './shared/services/main-pad.service';
 })
 export class AppComponent {
   title = 'Notemporary';
+  minimizedPadsData: Pad[] = [];
   constructor(private cardService: MainPadService) { }
 
 
@@ -18,5 +20,9 @@ export class AppComponent {
 
   openNewCard() {
     this.cardService.toggleCard(true);
+  }
+
+  incominMinimizedData(pad: Pad) {
+    this.minimizedPadsData.push(pad);
   }
 }

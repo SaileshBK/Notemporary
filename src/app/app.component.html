@@ -41,10 +41,24 @@
         <button class="card card-small" (click)="selection.value = 'save'" tabindex="0">
           <span (click)="openNewTab()">Open New Tab</span>
         </button>
+
+        <p>
+          Minimized Notes: {{minimizedPadsData.length}}
+        </p>
+        <div *ngFor="let pad of minimizedPadsData">
+          <mat-card class="card pads-small">
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{pad.id}}</mat-card-title>
+              </mat-card-title-group>
+            </mat-card-header>
+          </mat-card>
+        </div>
+
       </div>
     </div>
     <div class="right-panel">
-      <app-main-pad></app-main-pad>
+      <app-main-pad (minimizedData)="incominMinimizedData($event)"></app-main-pad>
     </div>
   </div>
 </div>
