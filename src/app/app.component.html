@@ -46,7 +46,7 @@
           Minimized Notes: {{minimizedPadsData.length}}
         </p>
         <div *ngFor="let pad of minimizedPadsData">
-          <mat-card class="card pads-small">
+          <mat-card class="card pads-small" (click)="openMinimizedCard(pad)">
             <mat-card-header>
               <mat-card-title-group>
                 <mat-card-title>{{pad.id}}</mat-card-title>

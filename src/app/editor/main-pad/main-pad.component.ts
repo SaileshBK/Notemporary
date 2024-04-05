@@ -31,6 +31,12 @@ export class MainPadComponent implements OnInit {
         this.openNewPad();
       }
     });
+
+    this.cardService.minimizedData$.subscribe(data => {
+      if (data) {
+        this.pads.push(data);
+      }
+    });
   }
 
   openNewPad() {
@@ -39,7 +45,8 @@ export class MainPadComponent implements OnInit {
       content: '',
       top: 0,
       left: 0,
-      visible: true
+      visible: true,
+      isRemoved: false
     };
     this.pads.push(newPad);
   }
@@ -49,8 +56,10 @@ export class MainPadComponent implements OnInit {
     this.pads = this.pads.filter(card => card.id !== pad.id);
   }
 
-  closeCard(cardId: string) {
-    this.pads = this.pads.filter(card => card.id !== cardId);
+  removeCard(pad: Pad) {
+    pad.isRemoved = true;
+    this.pads = this.pads.filter(card => card.id !== pad.id);
+    this.minimizedData.emit(pad);
   }
 
   stopEditing(currentPad: Pad) {

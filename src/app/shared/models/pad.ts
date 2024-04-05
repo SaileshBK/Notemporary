@@ -4,4 +4,5 @@ export interface Pad {
   top: number;
   left: number;
   visible: boolean;
+  isRemoved: boolean;
 }

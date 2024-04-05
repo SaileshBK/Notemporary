@@ -10,8 +10,10 @@ import { Pad } from './shared/models/pad';
 export class AppComponent {
   title = 'Notemporary';
   minimizedPadsData: Pad[] = [];
-  constructor(private cardService: MainPadService) { }
 
+  constructor(
+    private cardService: MainPadService
+  ) { }
 
   openNewTab(): void {
     const currentUrl = window.location.href;
@@ -23,6 +25,18 @@ export class AppComponent {
   }
 
   incominMinimizedData(pad: Pad) {
+    if (pad.isRemoved) {
+      this.minimizedPadsData = this.minimizedPadsData.filter(x => x.id != pad.id);
+      return;
+    }
+
+    if (this.minimizedPadsData.find(x => x.id == pad.id)) {
+      return;
+    }
     this.minimizedPadsData.push(pad);
+  }
+
+  openMinimizedCard(pad: Pad) {
+    this.cardService.sendMinimizedData(pad);
   }
 }
