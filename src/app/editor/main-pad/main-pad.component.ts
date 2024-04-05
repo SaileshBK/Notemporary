@@ -16,6 +16,7 @@ export class MainPadComponent implements OnInit {
   top = 0;
   left = 0;
   pads: Pad[] = [];
+  currentPadId: string = '';
 
   constructor(
     private cardService: MainPadService,
@@ -45,14 +46,11 @@ export class MainPadComponent implements OnInit {
     this.pads = this.pads.filter(card => card.id !== cardId);
   }
 
-  startEditing() {
-    this.isEditing = true;
-  }
-
   stopEditing(currentPad: Pad) {
-    this.isEditing = false;
+    this.currentPadId = currentPad.id;
     currentPad.content = this.sanitizationService.sanitize(currentPad.content);
     this.pads = this.pads.map(pad => pad.id === currentPad.id ? currentPad : pad);
+    this.isEditing = false;
   }
 
   moveCard(event: MouseEvent) {
