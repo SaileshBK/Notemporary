@@ -6,7 +6,7 @@ import { Pad } from '../models/pad';
   providedIn: 'root'
 })
 export class MainPadService {
-  minimizedData$ = new BehaviorSubject<Pad | null>(null);
+  minimizedData$ = new BehaviorSubject<Partial<Pad>>({});
   private showCardSource = new BehaviorSubject<boolean>(false);
   currentCardState = this.showCardSource.asObservable();
 

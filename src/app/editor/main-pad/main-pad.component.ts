@@ -33,8 +33,8 @@ export class MainPadComponent implements OnInit {
     });
 
     this.cardService.minimizedData$.subscribe(data => {
-      if (data) {
-        this.pads.push(data);
+      if (!this.pads.find(card => card.id === data.id)) {
+        this.pads.push(data as Pad);
       }
     });
   }
