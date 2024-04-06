@@ -169,6 +169,17 @@ a:hover {
   background-color: rgb(15, 15, 16);
 }
 
+.miniTerminal {
+  position: inherit;
+  justify-content: center;
+  width: 218px;
+  border-radius: 6px;
+  padding-top: 15px;
+  margin-top: 25px;
+  overflow: hidden;
+  background-color: rgb(15, 15, 16);
+}
+
 .terminal::before {
   content: "\2022 \2022 \2022";
   position: absolute;
