@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   openNewCard() {
-    this.cardService.toggleCard(true);
+    this.cardService.createNewPad(true);
   }
 
   incominMinimizedData(pad: Pad) {

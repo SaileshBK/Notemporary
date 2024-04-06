@@ -7,11 +7,10 @@ import { Pad } from '../models/pad';
 })
 export class MainPadService {
   minimizedData$ = new BehaviorSubject<Partial<Pad>>({});
-  private showCardSource = new BehaviorSubject<boolean>(false);
-  currentCardState = this.showCardSource.asObservable();
+  createNewCardPad$ = new BehaviorSubject<boolean>(false);
 
-  toggleCard(show: boolean) {
-    this.showCardSource.next(show);
+  createNewPad(createNew: boolean) {
+    this.createNewCardPad$.next(createNew);
   }
 
   sendMinimizedData(pad: Pad) {

@@ -26,8 +26,8 @@ export class MainPadComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.cardService.currentCardState.subscribe(show => {
-      if (show) {
+    this.cardService.createNewCardPad$.subscribe(createNewCard => {
+      if (createNewCard) {
         this.openNewPad();
       }
     });
