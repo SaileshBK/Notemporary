@@ -7,9 +7,9 @@ import { Pad } from '../models/pad';
 })
 export class MainPadService {
   minimizedData$ = new BehaviorSubject<Partial<Pad>>({});
-  createNewCardPad$ = new BehaviorSubject<boolean>(false);
+  createNewCardPad$ = new BehaviorSubject<Partial<Pad>>({});
 
-  createNewPad(createNew: boolean) {
+  createNewPad(createNew: Pad) {
     this.createNewCardPad$.next(createNew);
   }
 

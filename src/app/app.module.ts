@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -7,20 +7,26 @@ import { FormsModule } from '@angular/forms';
 import { DraggableDirective } from './shared/directives/draggable.directive';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatDialogActions, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
+import { NewPadDialogComponent } from './shared/components/new-pad-dialog/new-pad-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPadComponent,
-    DraggableDirective
+    DraggableDirective,
+    NewPadDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatDialogContent,
+    MatDialogActions,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

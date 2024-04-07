@@ -1,7 +1,7 @@
 <div *ngFor="let pad of pads">
   <div class="card" appDraggable *ngIf="pad.visible">
     <div class="card-header">
-      <span style="padding-right: 10px;">{{ pad.id }}</span>
+      <span style="padding-right: 10px;">{{ pad.name }}</span>
       <button type="button" class="minimize" (click)="minimizeCard(pad)">
         <span aria-hidden="true">&minus;</span>
       </button>

@@ -101,7 +101,8 @@ svg.material-icons:not(:last-child) {
 .card.pads-small {
   height: 16px;
   width: 168px;
-  margin-bottom: -25px;
+  margin-bottom: -5px;
+  word-wrap: break-word;
 }
 
 .card-container .card:not(.highlight-card) {

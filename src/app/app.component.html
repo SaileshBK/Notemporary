@@ -34,13 +34,14 @@
 
         <div class="miniTerminal" *ngIf="minimizedPadsData.length > 0">
           <p style="display: flex; justify-content: center; padding-bottom: 7px;">
-            Minimized Notes: {{minimizedPadsData.length}}
+            Minimized Notes: {{ minimizedPadsData.length }}
           </p>
           <div *ngFor="let pad of minimizedPadsData">
             <mat-card class="card pads-small" (click)="openMinimizedCard(pad)">
-              <mat-card-header>
+              <mat-card-header style="padding-bottom: 20px;">
                 <mat-card-title-group>
-                  <mat-card-title>{{pad.id}}</mat-card-title>
+                  <mat-card-title style="word-wrap: break-word; width: 150px; text-align: center;">{{ pad.name
+                    }}</mat-card-title>
                 </mat-card-title-group>
               </mat-card-header>
             </mat-card>

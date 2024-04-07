@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MainPadService } from './shared/services/main-pad.service';
 import { Pad } from './shared/models/pad';
+import { MatDialog } from '@angular/material/dialog';
+import { NewPadDialogComponent } from './shared/components/new-pad-dialog/new-pad-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,8 @@ export class AppComponent {
   minimizedPadsData: Pad[] = [];
 
   constructor(
-    private cardService: MainPadService
+    private cardService: MainPadService,
+    private dialog: MatDialog
   ) { }
 
   openNewTab(): void {
@@ -21,7 +24,17 @@ export class AppComponent {
   }
 
   openNewCard() {
-    this.cardService.createNewPad(true);
+
+    const dialogRef = this.dialog.open(NewPadDialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cardService.createNewPad(result);
+      }
+    });
+
   }
 
   incominMinimizedData(pad: Pad) {

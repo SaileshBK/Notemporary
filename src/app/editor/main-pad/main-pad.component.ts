@@ -28,7 +28,7 @@ export class MainPadComponent implements OnInit {
   ngOnInit() {
     this.cardService.createNewCardPad$.subscribe(createNewCard => {
       if (createNewCard) {
-        this.openNewPad();
+        this.openNewPad(createNewCard as Pad);
       }
     });
 
@@ -39,16 +39,8 @@ export class MainPadComponent implements OnInit {
     });
   }
 
-  openNewPad() {
-    const newPad: Pad = {
-      id: uuidv4(),
-      content: '',
-      top: 0,
-      left: 0,
-      visible: true,
-      isRemoved: false
-    };
-    this.pads.push(newPad);
+  openNewPad(note: Pad) {
+    this.pads.push(note);
   }
 
   minimizeCard(pad: Pad) {
