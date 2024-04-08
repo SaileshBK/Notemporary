@@ -1,11 +1,10 @@
 <mat-dialog-content>
-  <p>Name Of Your Note?</p>
+  <p>Your Note Name?</p>
   <mat-form-field>
-    <mat-label>Note</mat-label>
     <input matInput [(ngModel)]="pickedNoteName">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button [mat-dialog-close]="true">Close</button>
-  <button mat-button (click)="onOkClick()">Ok</button>
+  <button mat-button style="margin-left: 5px;" (click)="onOkClick()">Ok</button>
 </mat-dialog-actions>
