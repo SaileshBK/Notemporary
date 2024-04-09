@@ -1,8 +1,8 @@
 <div *ngFor="let pad of pads">
   <div class="card" appDraggable *ngIf="pad.visible">
     <span
-      style="display: flex; justify-content: center; word-break: break-all; text-align: center; align-items: center; padding-bottom: 7px; padding-top: 5px;">{{
-      pad.name }}</span>
+      style="display: flex; justify-content: center; word-break: break-all; text-align: center; align-items: center; padding-bottom: 7px; padding-top: 5px;">
+      {{ pad.name }}</span>
     <div class="card-header">
       <div style="float: right;">
         <button type="button" class="minimize" (click)="minimizeCard(pad)">
