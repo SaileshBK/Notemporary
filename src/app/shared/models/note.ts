@@ -1,4 +1,4 @@
-export interface Pad {
+export interface Note {
   id: string;
   name: string;
   content: string;

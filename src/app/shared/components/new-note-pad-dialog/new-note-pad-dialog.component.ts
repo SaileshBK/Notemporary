@@ -1,23 +1,23 @@
 import { Component, Inject } from '@angular/core';
-import { Pad } from '../../models/pad';
+import { Note } from '../../models/note';
 import { MatDialogRef } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
-  selector: 'app-new-pad-dialog',
-  templateUrl: './new-pad-dialog.component.html',
-  styleUrl: './new-pad-dialog.component.scss'
+  selector: 'app-new-note-pad-dialog',
+  templateUrl: './new-note-pad-dialog.component.html',
+  styleUrl: './new-note-pad-dialog.component.scss'
 })
-export class NewPadDialogComponent {
+export class NewNotePadDialogComponent {
   pickedNoteName: string = '';
 
   constructor(
-    public dialogRef: MatDialogRef<NewPadDialogComponent>
+    public dialogRef: MatDialogRef<NewNotePadDialogComponent>
   ) { }
 
   onOkClick(): void {
     const randomId = uuidv4();
-    const newPad: Pad = {
+    const newPad: Note = {
       id: randomId,
       name: this.pickedNoteName ?? randomId,
       content: '',

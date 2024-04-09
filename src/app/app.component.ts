@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MainPadService } from './shared/services/main-pad.service';
-import { Pad } from './shared/models/pad';
+import { NotePadService } from './shared/services/note-pad.service';
+import { Note } from './shared/models/note';
 import { MatDialog } from '@angular/material/dialog';
-import { NewPadDialogComponent } from './shared/components/new-pad-dialog/new-pad-dialog.component';
+import { NewNotePadDialogComponent } from './shared/components/new-note-pad-dialog/new-note-pad-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,10 @@ import { NewPadDialogComponent } from './shared/components/new-pad-dialog/new-pa
 })
 export class AppComponent {
   title = 'Notemporary';
-  minimizedPadsData: Pad[] = [];
+  minimizedPadsData: Note[] = [];
 
   constructor(
-    private cardService: MainPadService,
+    private cardService: NotePadService,
     private dialog: MatDialog
   ) { }
 
@@ -25,19 +25,19 @@ export class AppComponent {
 
   openNewCard() {
 
-    const dialogRef = this.dialog.open(NewPadDialogComponent, {
+    const dialogRef = this.dialog.open(NewNotePadDialogComponent, {
       width: '250px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.cardService.createNewPad(result);
+        this.cardService.createNewNotePad(result);
       }
     });
 
   }
 
-  incominMinimizedData(pad: Pad) {
+  incominMinimizedData(pad: Note) {
     if (pad.isRemoved) {
       this.minimizedPadsData = this.minimizedPadsData.filter(x => x.id != pad.id);
       return;
@@ -49,7 +49,7 @@ export class AppComponent {
     this.minimizedPadsData.push(pad);
   }
 
-  openMinimizedCard(pad: Pad) {
+  openMinimizedCard(pad: Note) {
     this.cardService.sendMinimizedData(pad);
   }
 }

@@ -1,60 +1,59 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Pad } from 'src/app/shared/models/pad';
-import { MainPadService } from 'src/app/shared/services/main-pad.service';
+import { Note } from 'src/app/shared/models/note';
+import { NotePadService } from 'src/app/shared/services/note-pad.service';
 import { SanitizationService } from 'src/app/shared/services/sanitization.service';
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
-  selector: 'app-main-pad',
-  templateUrl: './main-pad.component.html',
-  styleUrls: ['./main-pad.component.scss']
+  selector: 'app-note-pad',
+  templateUrl: './note-pad.component.html',
+  styleUrls: ['./note-pad.component.scss']
 })
-export class MainPadComponent implements OnInit {
+export class NotePadComponent implements OnInit {
   showCard: boolean = false;
   isEditing = false;
   noteContent = '';
   top = 0;
   left = 0;
-  pads: Pad[] = [];
+  pads: Note[] = [];
   currentPadId: string = '';
 
-  @Output() minimizedData = new EventEmitter<Pad>();
+  @Output() minimizedData = new EventEmitter<Note>();
 
   constructor(
-    private cardService: MainPadService,
+    private cardService: NotePadService,
     private sanitizationService: SanitizationService
   ) { }
 
   ngOnInit() {
     this.cardService.createNewCardPad$.subscribe(createNewCard => {
       if (createNewCard) {
-        this.openNewPad(createNewCard as Pad);
+        this.openNewPad(createNewCard as Note);
       }
     });
 
     this.cardService.minimizedData$.subscribe(data => {
       if (!this.pads.find(card => card.id === data.id)) {
-        this.pads.push(data as Pad);
+        this.pads.push(data as Note);
       }
     });
   }
 
-  openNewPad(note: Pad) {
+  openNewPad(note: Note) {
     this.pads.push(note);
   }
 
-  minimizeCard(pad: Pad) {
+  minimizeCard(pad: Note) {
     this.minimizedData.emit(pad);
     this.pads = this.pads.filter(card => card.id !== pad.id);
   }
 
-  removeCard(pad: Pad) {
+  removeCard(pad: Note) {
     pad.isRemoved = true;
     this.pads = this.pads.filter(card => card.id !== pad.id);
     this.minimizedData.emit(pad);
   }
 
-  stopEditing(currentPad: Pad) {
+  stopEditing(currentPad: Note) {
     this.currentPadId = currentPad.id;
     currentPad.content = this.sanitizationService.sanitize(currentPad.content);
     this.pads = this.pads.map(pad => pad.id === currentPad.id ? currentPad : pad);

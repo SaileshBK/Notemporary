@@ -47,3 +47,13 @@ textarea {
   text-decoration: none;
   cursor: pointer;
 }
+
+.note-name {
+  display: flex;
+  justify-content: center;
+  word-break: break-all;
+  text-align: center;
+  align-items: center;
+  padding-bottom: 7px;
+  padding-top: 5px;
+}
