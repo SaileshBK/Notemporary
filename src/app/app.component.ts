@@ -24,7 +24,6 @@ export class AppComponent {
   }
 
   openNewCard() {
-
     const dialogRef = this.dialog.open(NewNotePadDialogComponent, {
       width: '250px'
     });

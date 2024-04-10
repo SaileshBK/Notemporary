@@ -19,7 +19,7 @@ export class NewNotePadDialogComponent {
     const randomId = uuidv4();
     const newPad: Note = {
       id: randomId,
-      name: this.pickedNoteName ?? randomId,
+      name: this.pickedNoteName || randomId,
       content: '',
       top: 0,
       left: 0,
