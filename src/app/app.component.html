@@ -22,11 +22,11 @@
             <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
             </svg>
-            <span>New</span>
+            <span style="color: rgb(110, 4, 4); font-weight: bold;">New</span>
           </button>
 
           <button class="card card-small" (click)="selection.value = 'save'" tabindex="0">
-            <span (click)="openNewTab()">Open New Tab</span>
+            <span style="color: rgb(110, 4, 4); font-weight: bold;" (click)="openNewTab()">Open New Tab</span>
           </button>
         </div>
 
@@ -40,7 +40,9 @@
             <mat-card class="card pads-small" (click)="openMinimizedCard(pad)">
               <mat-card-header style="padding-bottom: 20px;">
                 <mat-card-title-group>
-                  <mat-card-title style="word-wrap: break-word; width: 150px; text-align: center;">{{ pad.name
+                  <mat-card-title
+                    style="word-wrap: break-word; width: 150px; text-align: center; color: rgb(110, 4, 4); font-weight: bold;">{{
+                    pad.name
                     }}</mat-card-title>
                 </mat-card-title-group>
               </mat-card-header>
