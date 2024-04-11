@@ -3,6 +3,7 @@ import { NotePadService } from './shared/services/note-pad.service';
 import { Note } from './shared/models/note';
 import { MatDialog } from '@angular/material/dialog';
 import { NewNotePadDialogComponent } from './shared/components/new-note-pad-dialog/new-note-pad-dialog.component';
+import { SettingsDialogComponent } from './shared/components/settings-dialog/settings-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -53,6 +54,13 @@ export class AppComponent {
   }
 
   openSettings() {
-    throw new Error('Method not implemented.');
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+      }
+    });
   }
 }

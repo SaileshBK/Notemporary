@@ -9,13 +9,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogActions, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
 import { NewNotePadDialogComponent } from './shared/components/new-note-pad-dialog/new-note-pad-dialog.component';
+import { SettingsDialogComponent } from './shared/components/settings-dialog/settings-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotePadComponent,
     DraggableDirective,
-    NewNotePadDialogComponent
+    NewNotePadDialogComponent,
+    SettingsDialogComponent
   ],
   imports: [
     BrowserModule,
