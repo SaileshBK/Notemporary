@@ -51,4 +51,8 @@ export class AppComponent {
   openMinimizedCard(pad: Note) {
     this.cardService.sendMinimizedData(pad);
   }
+
+  openSettings() {
+    throw new Error('Method not implemented.');
+  }
 }
