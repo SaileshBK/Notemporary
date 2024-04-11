@@ -55,7 +55,7 @@ export class AppComponent {
 
   openSettings() {
     const dialogRef = this.dialog.open(SettingsDialogComponent, {
-      width: '250px'
+      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

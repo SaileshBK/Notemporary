@@ -1,1 +1,31 @@
-<p>settings-dialog works!</p>
+<div style="display: flex; justify-content: center;">
+
+  <div class="settingcontainer">
+    <h2>Available</h2>
+    <p>{{'fonts : {'}}</p>
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="commonFonts" [cdkDropListConnectedTo]="[doneList]"
+      class="settinglist" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of commonFonts">
+        <div class="settingbox" cdkDrag>font : {{item}},</div>
+      </div>
+    </div>
+    <p>{{'};'}}</p>
+  </div>
+
+  <div class="settingcontainer">
+    <h2>Current</h2>
+    <p>{{'settings : {'}}</p>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+      class="settinglist" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of done">
+        <div class="settingbox" cdkDrag>font : {{item}},</div>
+      </div>
+    </div>
+    <p>{{'};'}}</p>
+  </div>
+</div>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Reset</button>
+  <button mat-button style="margin-left: 5px;">Save</button>
+</mat-dialog-actions>
